@@ -1,25 +1,33 @@
+//Resource - https://www.digitalocean.com/community/tutorials/how-to-create-a-web-server-in-node-js-with-the-http-module
 //Always name main file as index.js //It's a good practice
 
-
+//What actually is a server here - a computer , a program, temprorly a computer , what it is exactly?
 //let's make http server using built-in module in nodejs
 
 
 const http = require("http");
 const fs = require("fs");
+const url = require("url"); //external module installed using command -> npm i url
 
 const myServer = http.createServer( (req, res) => {
   /*
   console.log(req.headers);
   console.log(req)
   */
-  const log = `${Date.now()}: New Req Recieved\n`;
-  fs.appendFile("log.txt", log, (err, data)=> { //non-blocking request -> Async -> Avoid CPU intensive Task
-      switch(req.url){  //multi Route -> giving different response based on different page
+  const log = `${Date.now()}:${req.url} New Req Recieved\n`;
+
+  const myURL = url.parse(req.url, true); //second parameter passed as true //to parse query parameters
+  console.log(myURL)
+  fs.appendFile("log.txt", log, (err, data)=> { 
+    //non-blocking request -> Async -> Avoid CPU intensive Task
+      switch(myURL.pathname){  //multi Route -> giving different response based on different page
         case "/" : 
           res.end("HomePage");
           break;
         case "/about": 
-          res.end("I am Mamta Rajera");
+
+          const username = myURL.query.myname;
+          res.end(`Hii ${username}`);
           break;
         default:
           res.end("404 not found"); 
