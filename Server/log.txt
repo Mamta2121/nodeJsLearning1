@@ -18,3 +18,7 @@
 1730728809715:/favicon.ico New Req Recieved
 1730728884559:/about?myname=mamta&userId=1 New Req Recieved
 1730728884586:/favicon.ico New Req Recieved
+1730792471364:GET  / New Req Recieved
+1730792471443:GET  /favicon.ico New Req Recieved
+1730792511313:GET  /signup New Req Recieved
+1730792511363:GET  /favicon.ico New Req Recieved
