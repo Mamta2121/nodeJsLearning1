@@ -1,0 +1,74 @@
+#1 Basic example of Express
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+Basic Routing 
+Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
+Each route can have one or more handler functions, which are executed when the route is matched.
+
+Route definition takes the following structure:
+
+app.METHOD(PATH, HANDLER)
+Where:
+
+app is an instance of express.
+METHOD is an HTTP request method, in lowercase.
+PATH is a path on the server.
+HANDLER is the function executed when the route is matched.
+
+Diff between res.end() and res.send()
+
+The res.end() and res.send() methods are both used to send responses back to the client, but they are slightly different in their usage and functionality. Here’s a detailed comparison:
+
+1. res.end()
+Purpose: Ends the response process and sends data to the client. It's a low-level function that signals the end of the response.
+
+Parameters: Takes an optional argument, usually a string or a buffer, to send as the response body.
+
+Usage: Commonly used in the core http module in Node.js and is the final method called in the response lifecycle.
+
+Content-Type: Does not set the Content-Type header automatically. If you want to specify a content type, you need to manually set the headers.
+
+Example:
+javascript file
+Copy code
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello, world!');  // Sends the response and ends the connection
+});
+
+server.listen(3000);
+
+
+
+2. res.send()
+Purpose: A higher-level method provided by Express to send a response. It automatically sets the response headers based on the content being sent.
+
+Parameters: Accepts various types of data, including strings, objects, arrays, and buffers. res.send() can also handle JSON by detecting the data type and setting the appropriate Content-Type.
+
+Usage: Primarily used with the Express framework and is more versatile. It also automatically calls res.end() internally, so it completes the response process.
+
+Content-Type: Automatically sets the Content-Type header based on the data. For example, if you pass an object or array, res.send() sends a JSON response.
+
+Example:
+javascript file
+Copy code
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello, world!');  // Automatically sets Content-Type and ends the response
+});
+
+app.listen(3000);

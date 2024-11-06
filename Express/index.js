@@ -12,11 +12,11 @@ const app = express();
 
 
 app.get('/', (req,res) => {
-  res.end("Hello from Home Page");
+  res.send("Hello from Home Page");
 })
 
 app.get( '/about', (req, res) => {
-  res.end("Hello from About Page" + ` Hello ${req.query.myname} with user id ${req.query.userId}`)
+  res.send("Hello from About Page" + ` Hello ${req.query.myname} with user id ${req.query.userId}`)
 })
 
 
