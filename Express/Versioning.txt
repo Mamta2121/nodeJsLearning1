@@ -1,0 +1,44 @@
+//version  
+"express": "^4.21.1"   -> currect version in package.json 
+
+
+1st part ->  4
+2nd part -> 21
+3rd part -> 1
+
+// 3rd part (Last Part) -> Minor Fixes(Optional Update) -> Completely optional
+next version -> 4.21.2 
+
+//2nd part -> Recommended Bug Fix(Security Update)  Or A Small Feature Addition -> A must do
+next version -> 4.22.0
+
+// 1st part -> Major Release / Breaking Update
+Existing application built on a previos version , if changed to the major relase , mostly leads to a code breakage and code stops working -> Not Recommended at all
+
+If building an entirely new application from scratch, then use this  -> Optional
+
+
+
+
+
+npm install express -> always installs the latest version by default
+
+npm install express@Specify any version -> you wish to be installed 
+
+//Go to webstie npmjs.com -> search for express -> go to versions -> install any version you wish to 
+ 
+
+
+carot symbol ^ 
+what does this mean?
+
+means first part is fixed(locked)  and second third could change-> Install all Recommended and minor fixes automatically
+4.21.1 -> <5.0.0 allowed
+
+til symbol ~ 
+means first and second part both are fixed , only third could be automatically changed
+
+
+latest -> never Recommended 
+automatically updates first part -> Can lead to code breakage
+
