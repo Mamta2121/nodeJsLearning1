@@ -1,0 +1,30 @@
+Rest API/Restful API
+
+*******************Resources*********
+ https://aws.amazon.com/what-is/restful-api/#:~:text=RESTful%20API%20is%20an%20interface,applications%20to%20perform%20various%20tasks.
+A type of API which follows these rules:-
+//Rules 
+
+
+
+                Request
+    CLIENT  ---------------> SERVER
+            <---------------
+                Response
+1)Client -> browser, phone, any technical device
+2) Works on server-client architexture . Server and client are different machines , Both must be indepedent of each other
+3) Response -> can be text, image, html document(SSR:Server Side Rendering) , JSON(javascript object Notation)(key-value pair->raw data)
+4) Always respect all http methods -> GET POST PUT PATCH DELETE 
+
+//Right 
+GET /user -> user data read kro and return  data
+POST /user -> Handle new user Creation
+PATCH /user -> Update the user 
+
+//Wrong => Because POST is meant to send data => For updating data PUT and PATCH is used. Similarly to get data GET  is used. and to delete dat DELETE is used
+POST /updateUser -> Update the user POST /createUser -> Create the user 
+POST /deleteUSer -> delete the user
+
+
+CSR ->Client Side Rendering -> JSON  
+SSR ->Server Side Rendering -> HTML

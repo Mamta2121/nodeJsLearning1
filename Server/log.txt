@@ -22,3 +22,4 @@
 1730792471443:GET  /favicon.ico New Req Recieved
 1730792511313:GET  /signup New Req Recieved
 1730792511363:GET  /favicon.ico New Req Recieved
+1730897634308:GET  /favicon.ico New Req Recieved

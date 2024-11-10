@@ -1,0 +1,44 @@
+Initialize project -> Run Command -> npm init 
+It Makes a package.json file
+Also, index.js is start point of execution
+
+
+Install express -> npm i express
+ 
+Making a REST API  -> JSON
+
+These are the tasks we will perform
+
+1)
+Making a Hybrid Server -> compatible with different devices
+GET /users - List all users  -> returns HTML  -> only compatible with Browsers 
+GET /api/users - List all users JSON - returns JSON -> compatible with mobile phones
+
+GET /api/users/1 - Get the user with id = 1
+GET /api/users/2 - Get the user with id = 2
+
+
+Dynamic Path Parameters -> Using Colon
+GET /api/users/:id 
+:id -> Variable|Dynamic 
+
+2)
+POST /api/users - Create new user 
+
+3)
+PATCH /api/users/1 - Edit the user with ID 1 
+
+4)
+DELETE /api/users/1 - Delete the user with ID 1 
+
+
+=> How to get the data?
+-We are not using any Database 
+-Use mockaroo.com -> creates a hard-coded data for testing puposes
+
+
+=>Now , Browser can only be made to do GET request, then how to make POST, PATCH, DELETE requests?
+-For this , a tool called POSTMAN is used 
+
+
+=>Middleware
