@@ -1,0 +1,30 @@
+//Resource -> https://expressjs.com/en/guide/using-middleware.html
+//Notes of Middleware 
+                  
+                  req-->
+       Client ------------- Server(function)
+                  <--res
+
+req->
+Client --- MiddleWare --- Server(func)        
+            <-res           <-res  
+
+MiddleWare function runs on every req as well as every res .
+
+There can be multiple MiddleWares 
+
+Client --- MW1 --- MW2 --- MW3 --- Server 
+
+=>Use JSON.stringify() to convert JavaScript objects to JSON strings.
+=>Use JSON.parse() to convert JSON strings to JavaScript objects.
+
+
+-> Every middleware has access to next() function , which calls next midddleware
+
+->If there exist a next middleware after the current middleware , you should either end the cycle by sending the response from current middleware , or should use next() to call next middleware .
+->If you don't use either the request get stuck at current middleware
+
+->Why Use next()?
+
+To Pass Control:next() tells Express to move to the next middleware function in the stack. Without calling next(), the request will not proceed further, and the response will hang (timeout).
+Skipping Middleware:You can use next('route') to skip the current middleware and jump to the next route handler if the conditions are met.

@@ -5,10 +5,30 @@ let users = require('./MOCK_DATA.json')
 const app = express();
 const PORT = 8000;
 
+console.log(typeof users);
+
+
 
 app.use(express.urlencoded({extended:true}));
-//Routes
+//Routes 
+
+app.use( (req, res, next) => {
+  //console.log(typeof res)
+  //console.log(typeof req)
+ //console.log(typeof next)
+  console.log('MW1');
+  next(); 
+});
+
+
+app.use( (req, res, next) => {
+  console.log('MW2'); 
+   next();
+});
+
+
 app.get('/users', (req,res) =>{
+    
     
     const html = `<ul> ${users.map((users) => `<li>${users.id}</li>`).join("")}</ul>`;
     return res.send(html);
@@ -16,6 +36,8 @@ app.get('/users', (req,res) =>{
 
 //Rest API Routes
 app.get('/api/users', (req,res)=>{
+    
+   //console.log(typeof users)
    return res.json(users);
 });
 
@@ -47,16 +69,19 @@ app.patch( '/api/users/:id', (req, res)=> {
 
 app.delete( '/api/users/:id', (req,res)=>{
   //Delete user with id
-  //Delete is still remaining to be completed
-  const idTobeDeleted = Number(req.params.id);
-  console.log(typeof users);
-  users = JSON.parse(users);
-  console.log(typeof users)
-  const newUsers = users.filter( user => user.id !== idTobeDeleted );
-  fs.writeFile('./MOCK_DATA.json',JSON.stringify(users), (err, data) => {
-    users = require('./MOCK_DATA.json');
-    return res.json({status: "pending", newLength: users.length});
+  //Delete Done
+  
+  const idTobeDeleted = Number(req.params.id); //id of the user to be deleted
+  //console.log(typeof users);
+  
+  //console.log(typeof users)
+  users = users.filter( user => user.id !== idTobeDeleted ); //simple use filter function on the users which is a JSON containing a array 
+  fs.writeFile('./MOCK_DATA.json',JSON.stringify(users), (err, data) => { //make sure to overwrite file with new JSON
+    
+    console.log(typeof users)
+    return res.json({status: "pending", newLength: users.length}); //return new length which should be one less than before showing a deleted info
   });
+  
   
 });
 
