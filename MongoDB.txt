@@ -1,0 +1,19 @@
+->No SQL Document Based Database 
+->Strong Support for aggregation Pipes
+->Works on BSON format 
+->Best for Node Application
+
+
+
+
+->Database: A container for collections (similar to a schema in relational databases).
+->Collection: A group of documents (like a table in SQL).
+
+
+
+
+->Document: A record in a collection, represented as a JSON-like object (BSON format).
+
+-> to connect nodejs with mongodb-> there is a package called as mongoose
+-> npm  i mongoose
+->Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a straightforward, schema-based solution to model your application data. Mongoose simplifies working with MongoDB by allowing you to define schemas for your collections and giving you a set of powerful tools for querying and manipulating that data. 

@@ -1,0 +1,84 @@
+//Header 
+  -> Http Headers are an important part of the API req and res as they represent metadata about them.
+  -> HTTP headers are key-value pairs sent between the client and server as part of an HTTP request or response. They provide additional information about the request or response, such as metadata, client capabilities, or server requirements.
+  -> Using HTTP Headers in Express
+  In Express, you can easily set, get, and manage headers.
+
+//Status Code 
+-> 404 - Not Found
+-> HTTP status codes are three-digit numbers sent by the server in response to a client's request. They indicate the status of the request, helping the client understand whether the request was successful, encountered an error, or requires additional action.
+
+-Each status code falls into one of five categories, based on the first digit:
+
+1xx: Informational
+2xx: Success
+3xx: Redirection
+4xx: Client Errors
+5xx: Server Errors
+
+=> 1xx: Informational Responses 
+
+-These codes indicate that the server has received the request and the client can continue the process.
+
+-Code	Meaning	Description
+100	-> Continue ->	Request received continue sending.
+101	-> Switching Protocols ->	Server agrees to switch protocols.
+
+=> 2xx: Success Responses
+These codes indicate that the request was successfully received, understood, and accepted.
+
+-Code	Meaning	Description
+200	-> OK	->The request was successful.
+201	-> Created -> Resource successfully created.
+204	-> No Content -> The request was successful, but there is no content to return.
+
+
+=> 3xx: Redirection Responses
+These codes indicate that further action needs to be taken by the client to complete the request.
+
+Code	Meaning	Description
+301	-> Moved Permanently ->	The resource has a new permanent URL.
+302	-> Found (Temporary Redirect) ->	The resource temporarily resides at a different URL.
+304 ->	Not Modified -> The resource has not changed since the last request (used for caching).
+
+
+=> 4xx: Client Error Responses
+These codes indicate an error caused by the client, such as a malformed request or unauthorized access.
+
+Code	Meaning	Description
+400	-> Bad Request ->	The server could not understand the request due to invalid syntax.
+401 -> Unauthorized ->	Authentication is required to access the resource.
+403	-> Forbidden ->	The server understood the request, but it refuses to authorize it.
+404	-> Not Found	-> The server cannot find the requested resource.
+409	-> Conflict	-> The request conflicts with the current state of the resource.
+
+=> 5xx: Server Error Responses
+-These codes indicate an error on the server side, often due to an unexpected condition.
+
+-Code	Meaning	Description
+500	-> Internal Server Error ->	The server encountered an unexpected error.
+502	-> Bad Gateway ->	The server received an invalid response from the upstream server.
+503	-> Service Unavailable ->	The server is currently unable to handle the request (e.g., overloaded).
+504	-> Gateway Timeout -> The server did not receive a timely response from the upstream server.
+
+=> Common Use Cases of HTTP Status Codes in   Express
+In Express.js, you can easily set the status code of a response using res.status().
+
+Example: Handling Different Status Codes
+js
+Copy code
+app.get('/api/data', (req, res) => {
+  const data = getDataFromDatabase();
+
+  if (!data) {
+    return res.status(404).send('Data not found');
+  }
+
+  res.status(200).json(data);
+});
+
+
+//nodemon  
+-> install this package 
+-> npm in nodemon 
+-> Automatic Server Restart -> on Ctrl + S
